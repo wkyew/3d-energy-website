@@ -1,0 +1,51 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky-d1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2E8B57"/>
+      <stop offset="1" stop-color="#1a5d3a"/>
+    </linearGradient>
+    <radialGradient id="sun-d1" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#fff8e0" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#fff8e0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#sky-d1)"/>
+  <!-- Sun glow -->
+  <circle cx="600" cy="180" r="160" fill="url(#sun-d1)"/>
+  <circle cx="600" cy="180" r="38" fill="#fff8e0" opacity="0.6"/>
+  <!-- Distant hills -->
+  <path d="M0 460 Q 200 400 400 440 T 800 420 L 800 600 L 0 600 Z" fill="#0E1B2C" opacity="0.25"/>
+  <path d="M0 500 Q 250 460 500 480 T 800 470 L 800 600 L 0 600 Z" fill="#0E1B2C" opacity="0.4"/>
+  <!-- Wind turbines -->
+  <g opacity="0.85" stroke="#fff8e0" stroke-width="3" fill="none" stroke-linecap="round">
+    <!-- Turbine 1 -->
+    <line x1="180" y1="430" x2="180" y2="240"/>
+    <g transform="translate(180 240) rotate(20)">
+      <line x1="0" y1="0" x2="0" y2="-90"/>
+      <line x1="0" y1="0" x2="78" y2="45"/>
+      <line x1="0" y1="0" x2="-78" y2="45"/>
+    </g>
+    <circle cx="180" cy="240" r="6" fill="#fff8e0"/>
+    <!-- Turbine 2 (smaller, further) -->
+    <line x1="320" y1="450" x2="320" y2="320"/>
+    <g transform="translate(320 320) rotate(-15)">
+      <line x1="0" y1="0" x2="0" y2="-60"/>
+      <line x1="0" y1="0" x2="52" y2="30"/>
+      <line x1="0" y1="0" x2="-52" y2="30"/>
+    </g>
+    <circle cx="320" cy="320" r="4" fill="#fff8e0"/>
+    <!-- Turbine 3 -->
+    <line x1="460" y1="440" x2="460" y2="280"/>
+    <g transform="translate(460 280) rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="-72"/>
+      <line x1="0" y1="0" x2="62" y2="36"/>
+      <line x1="0" y1="0" x2="-62" y2="36"/>
+    </g>
+    <circle cx="460" cy="280" r="5" fill="#fff8e0"/>
+  </g>
+  <!-- Birds / motion specks -->
+  <g fill="#fff8e0" opacity="0.5">
+    <path d="M 700 120 q 4 -3 8 0 q 4 -3 8 0" stroke="#fff8e0" stroke-width="2" fill="none"/>
+    <path d="M 660 90 q 3 -2 6 0 q 3 -2 6 0" stroke="#fff8e0" stroke-width="1.5" fill="none"/>
+  </g>
+</svg>
