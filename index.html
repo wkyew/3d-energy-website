@@ -662,10 +662,10 @@
       </figure>
 
       <div class="hero-stamps">
-        <div class="stamp"><div class="n">100<em>+</em></div><div class="l">Students &amp; ECRs trained</div></div>
-        <div class="stamp"><div class="n">04</div><div class="l">Cohorts delivered</div></div>
-        <div class="stamp"><div class="n">04</div><div class="l">Partner universities</div></div>
-        <div class="stamp"><div class="n">05</div><div class="l">Years · Three continents</div></div>
+        <div class="stamp"><div class="n" data-target="100" data-suffix="+">0<em>+</em></div><div class="l">Students &amp; ECRs trained</div></div>
+        <div class="stamp"><div class="n" data-target="4" data-pad="2">00</div><div class="l">Cohorts delivered</div></div>
+        <div class="stamp"><div class="n" data-target="4" data-pad="2">00</div><div class="l">Partner universities</div></div>
+        <div class="stamp"><div class="n" data-target="5" data-pad="2">00</div><div class="l">Years · Three continents</div></div>
       </div>
     </div>
   </header>
@@ -1198,6 +1198,40 @@
 </footer>
 
 <script>
+  // Count-up on hero stamps when in view
+  (function(){
+    const els = document.querySelectorAll('.stamp .n[data-target]');
+    if (!els.length) return;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function setFinal(el){
+      const t = +el.dataset.target;
+      const pad = +el.dataset.pad || 0;
+      const suffix = el.dataset.suffix || '';
+      const num = pad ? String(t).padStart(pad,'0') : String(t);
+      el.innerHTML = num + (suffix ? '<em>'+suffix+'</em>' : '');
+    }
+    function animate(el){
+      const t = +el.dataset.target;
+      const pad = +el.dataset.pad || 0;
+      const suffix = el.dataset.suffix || '';
+      const dur = 1400; const start = performance.now();
+      function tick(now){
+        const p = Math.min(1, (now-start)/dur);
+        const eased = 1 - Math.pow(1-p, 3);
+        const v = Math.round(t * eased);
+        const num = pad ? String(v).padStart(pad,'0') : String(v);
+        el.innerHTML = num + (suffix ? '<em>'+suffix+'</em>' : '');
+        if (p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+    if (reduced || !('IntersectionObserver' in window)) { els.forEach(setFinal); return; }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(en => { if (en.isIntersecting) { animate(en.target); io.unobserve(en.target); } });
+    }, { threshold: 0.4 });
+    els.forEach(e => io.observe(e));
+  })();
+
   // Scroll progress
   (function(){
     const bar = document.getElementById('progress');
