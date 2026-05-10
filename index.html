@@ -920,15 +920,16 @@
           <span class="eyebrow">Watch / 05</span>
           <h2 class="section-title">A short film, <em>from the room</em>.</h2>
         </div>
-        <p>Six minutes of cohort footage, partner interviews, and the unmistakable noise of a classroom that has just realised it spans four time zones.</p>
+        <p>A short film capturing the spirit of the 3D Energy Project — the people, the partner cities, and the conviction that energy education has to be built across borders.</p>
       </div>
-      <div class="video-frame" id="videoFrame" data-yt="dQw4w9WgXcQ">
-        <button class="video-thumb" id="videoThumb" type="button" aria-label="Play 3D Energy programme film">
+      <div class="video-frame" id="videoFrame" data-yt="ojAOgv_5R6I">
+        <button class="video-thumb" id="videoThumb" type="button" aria-label="Play 3D Energy programme film"
+                style="background-image: url('https://i.ytimg.com/vi/ojAOgv_5R6I/maxresdefault.jpg'); background-size: cover; background-position: center;">
           <span class="play-btn" aria-hidden="true">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
           </span>
         </button>
-        <span class="video-meta">3D Energy · Programme film · 6:14</span>
+        <span class="video-meta">3D Energy · Programme film</span>
       </div>
     </div>
   </section>
@@ -1241,7 +1242,7 @@
     const thumb = document.getElementById('videoThumb');
     if (!frame || !thumb) return;
     thumb.addEventListener('click', () => {
-      const id = frame.dataset.yt || 'dQw4w9WgXcQ';
+      const id = frame.dataset.yt || 'ojAOgv_5R6I';
       const iframe = document.createElement('iframe');
       iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`;
       iframe.title = '3D Energy programme film';
